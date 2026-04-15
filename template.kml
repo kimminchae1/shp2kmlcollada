@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<!-- 3D Tiling Pipeline KML template for use with altitudeMode=absolute -->
+<Document>
+  <Placemark>
+    <name>{name}</name>
+    <Model>
+    <Location>
+      <longitude>{longitude}</longitude>
+      <latitude>{latitude}</latitude>
+      <altitude>{altitude}</altitude>
+    </Location>
+    <altitudeMode>relativeToGround</altitudeMode>
+    <Orientation>
+      <heading>0</heading>
+      <tilt>0</tilt>
+      <roll>0</roll>
+    </Orientation>
+    <Scale>
+      <x>1</x>
+      <y>1</y>
+      <z>1</z>
+    </Scale>
+    <Link>
+      <href>{href}</href>
+    </Link>
+    </Model>
+	<ExtendedData>
+	  <Data name="FTR_CDE">
+		  <value>{FTR_CDE}</value>
+	  </Data>
+	  <Data name="FTR_IDN">
+		  <value>{FTR_IDN}</value>
+	  </Data>
+	  <Data name="HJD_CDE">
+		  <value>{HJD_CDE}</value>
+	  </Data>
+    <Data name="MNG_CDE">
+		  <value>{MNG_CDE}</value>
+	  </Data>
+    <Data name="SHT_NUM">
+		  <value>{SHT_NUM}</value>
+	  </Data>
+    <Data name="SEC_IDN">
+		  <value>{SEC_IDN}</value>
+	  </Data>
+    <Data name="CNT_NUM">
+		  <value>{CNT_NUM}</value>
+	  </Data>
+    <Data name="TRE_YMD">
+		  <value>{TRE_YMD}</value>
+	  </Data>
+    <Data name="TRE_CDE">
+		  <value>{TRE_CDE}</value>
+	  </Data>
+    <Data name="TRE_DIA">
+		  <value>{TRE_DIA}</value>
+	  </Data>
+    <Data name="PTC_CDE">
+		  <value>{PTC_CDE}</value>
+	  </Data>
+    <Data name="SYS_CHK">
+		  <value>{SYS_CHK}</value>
+	  </Data>
+    <Data name="UPD_NAM">
+		  <value>{UPD_NAM}</value>
+	  </Data>
+    <Data name="UPD_YMD">
+		  <value>{UPD_YMD}</value>
+	  </Data>
+	</ExtendedData>
+  </Placemark>
+</Document>
+</kml>
