@@ -1,0 +1,10 @@
+import shapefile
+
+# 
+def read_shp(shp_path):
+    sf = shapefile.Reader(shp_path)
+    fields = [f[0] for f in sf.fields[1:]] 
+
+    # 도형 정보, 속성값 목록
+    for shape, record in zip(sf.shapes(), sf.records()):
+        yield shape, dict(zip(fields, record))
