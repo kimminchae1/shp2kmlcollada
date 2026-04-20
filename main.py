@@ -24,7 +24,7 @@ total = len(list(read_shp(shp_path)))
 for i, (shape, attrs) in enumerate(tqdm(read_shp(shp_path), total=total, desc="KML 생성 중")):
     
     # 테스트
-    if i >= 100:
+    if i >= 1000:
         break
 
     if not shape.points:
