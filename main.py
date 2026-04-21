@@ -15,26 +15,29 @@ EPSG = 5187
 os.makedirs(output_dir, exist_ok=True)
 
 # 좌표변환 및 템플릿 준비
-transformer = get_transformer(EPSG)
+transformer = get_transformer(EPSG) # 5187 -> 4326
 template = load_template(template_path)
 
 total = len(list(read_shp(shp_path)))
 
-# 실행 (객체 하나 -> KML 하나 생성)
+# 실행
+# shape : 공간 정보 (좌표, geometry) // attrs : 속성 정보 (컬럼 값)
 for i, (shape, attrs) in enumerate(tqdm(read_shp(shp_path), total=total, desc="KML 생성 중")):
     
     # 테스트
-    if i >= 1000:
-        break
+    # if i >= 1000:
+    #    break
 
     if not shape.points:
         continue
 
+    # geometry 좌표 → WGS84 경위도 변환
     x, y = shape.points[0]
     lon, lat = to_wgs84(transformer, x, y)
 
     name = f"GM_TREE_{i+1}"
-    href = f"{name}.dae"
+    href = "tree.dae"
+    # href = f"{name}.dae"
 
     # XML 안전 처리
     safe_attrs = {k: clean_xml(v) for k, v in attrs.items()}
