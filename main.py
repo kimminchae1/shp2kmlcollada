@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 # 경로 및 좌표계 설정
 shp_path = "../input/shp/RDL_TREE_PS.shp"
-output_dir = "../output/kml"
+output_dir = "../outputnew/kml"
 template_path = "template.kml"
 EPSG = 5187
 
@@ -25,8 +25,8 @@ total = len(list(read_shp(shp_path)))
 for i, (shape, attrs) in enumerate(tqdm(read_shp(shp_path), total=total, desc="KML 생성 중")):
     
     # 테스트
-    # if i >= 1000:
-    #    break
+    # if i >= 10:
+    #   break
 
     if not shape.points:
         continue
@@ -35,9 +35,9 @@ for i, (shape, attrs) in enumerate(tqdm(read_shp(shp_path), total=total, desc="K
     x, y = shape.points[0]
     lon, lat = to_wgs84(transformer, x, y)
 
-    name = f"GM_TREE_{i+1}"
-    href = "tree.dae"
-    # href = f"{name}.dae"
+    name = f"tr_{i+1}"
+    href = f"{name}.dae"
+    # href = "tree.dae"
 
     # XML 안전 처리
     safe_attrs = {k: clean_xml(v) for k, v in attrs.items()}

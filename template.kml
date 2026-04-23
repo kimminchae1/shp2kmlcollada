@@ -17,9 +17,9 @@
       <roll>0</roll>
     </Orientation>
     <Scale>
-      <x>1</x>
-      <y>1</y>
-      <z>1</z>
+      <x>10.0</x>
+      <y>10.0</y>
+      <z>11.1</z>
     </Scale>
     <Link>
       <href>{href}</href>

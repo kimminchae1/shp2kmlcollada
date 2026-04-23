@@ -1,6 +1,7 @@
 import os
 import shutil
 from tqdm import tqdm
+import time
 
 def copy_dae_files(input_dir, output_dir, count, prefix="gumi"):
     files = [f for f in os.listdir(input_dir) if f.lower().endswith(".dae")]
@@ -24,7 +25,12 @@ def copy_dae_files(input_dir, output_dir, count, prefix="gumi"):
         raise Exception("디스크 용량 부족")
 
     # 복사 + 진행률
-    for i in tqdm(range(1, count + 1), desc="DAE 생성 중"):
+    # for i in tqdm(range(1, count + 1), desc="DAE 생성 중"):
+    for i in range(1, count + 1):
         name = f"{prefix}_{i}.dae"
         dest_file = os.path.join(output_dir, name)
-        shutil.copy2(source_file, dest_file)
+        shutil.copyfile(source_file, dest_file)
+
+        if i % 500 == 0:
+            print(f"{i}개 완료")
+            time.sleep(1)
