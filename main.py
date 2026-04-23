@@ -5,13 +5,15 @@ from core.kml_writer import load_template, write_kml
 from core.utils import clean_xml
 from tqdm import tqdm
 
-# 경로 및 좌표계 설정
-shp_path = "../input/shp/RDL_TREE_PS.shp"
-output_dir = "../outputnew/kml"
+# SHP 파일을 읽어 객체별 KML 파일을 생성
+
+# 경로 및 원본 좌표계 설정
+shp_path = "../input/shp_test/RDL_TREE_PS_TEST"
+output_dir = "../output/kml"
 template_path = "template.kml"
 EPSG = 5187
 
-# 출력 폴더 생성
+# 출력 폴더 생성 
 os.makedirs(output_dir, exist_ok=True)
 
 # 좌표변환 및 템플릿 준비

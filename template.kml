@@ -29,7 +29,7 @@
 	  <Data name="ftr_cde">
 		  <value>{FTR_CDE}</value>
 	  </Data>
-	  <Data name="ftr_ide">
+	  <Data name="ftr_idn">
 		  <value>{FTR_IDN}</value>
 	  </Data>
 	  <Data name="hjd_cde">
