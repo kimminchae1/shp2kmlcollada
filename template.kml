@@ -62,12 +62,6 @@
     <Data name="sys_chk">
 		  <value>{SYS_CHK}</value>
 	  </Data>
-    <Data name="upd_nam">
-		  <value>{UPD_NAM}</value>
-	  </Data>
-    <Data name="upd_ymd">
-		  <value>{UPD_YMD}</value>
-	  </Data>
 	</ExtendedData>
   </Placemark>
 </Document>

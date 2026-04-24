@@ -8,8 +8,8 @@ from tqdm import tqdm
 # SHP 파일을 읽어 객체별 KML 파일을 생성
 
 # 경로 및 원본 좌표계 설정
-shp_path = "../input/shp_test/RDL_TREE_PS_TEST"
-output_dir = "../output/kml"
+shp_path = "../input/shp/RDL_TREE_PS"
+output_dir = "../outputnew/kmlnew"
 template_path = "template.kml"
 EPSG = 5187
 
@@ -27,7 +27,7 @@ total = len(list(read_shp(shp_path)))
 for i, (shape, attrs) in enumerate(tqdm(read_shp(shp_path), total=total, desc="KML 생성 중")):
     
     # 테스트
-    # if i >= 10:
+    #if i >= 10:
     #   break
 
     if not shape.points:
@@ -41,8 +41,23 @@ for i, (shape, attrs) in enumerate(tqdm(read_shp(shp_path), total=total, desc="K
     href = f"{name}.dae"
     # href = "tree.dae"
 
-    # XML 안전 처리
-    safe_attrs = {k: clean_xml(v) for k, v in attrs.items()}
+    # safe_attrs = {k: clean_xml(v) for k, v in attrs.items()}
+    # data = {
+    #    "name": name,
+    #    "longitude": lon,
+    #    "latitude": lat,
+    #    "altitude": 0,
+    #    "href": href,
+    #    **safe_attrs
+    #}
+
+    allowed_fields = ["FTR_CDE", "FTR_IDN", "HJD_CDE", "MNG_CDE", "SHT_NUM", "SEC_IDN", "CNT_NUM", "TRE_YMD", "TRE_CDE", "TRE_DIA", "PTC_CDE", "SYS_CHK"]
+
+    safe_attrs = {
+        k: clean_xml(v)
+        for k, v in attrs.items()
+        if k in allowed_fields
+    }
 
     data = {
         "name": name,
